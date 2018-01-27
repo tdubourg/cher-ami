@@ -194,9 +194,28 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 945c8bd115336444592b48777bae275e, type: 3}
+      propertyPath: m_Name
+      value: pigeon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 945c8bd115336444592b48777bae275e, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1442866576 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100006, guid: 945c8bd115336444592b48777bae275e, type: 3}
+  m_PrefabInternal: {fileID: 1442866575}
+--- !u!114 &1442866577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1442866576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f14a38e971ed14c86a157204bbfae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1791986774
 GameObject:
   m_ObjectHideFlags: 0
