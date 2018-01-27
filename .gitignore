@@ -1,8 +1,8 @@
-unity_project/[Ll]ibrary/
-unity_project/[Tt]emp/
-unity_project/[Oo]bj/
-unity_project/[Bb]uild/
-unity_project/[Bb]uilds/
+unity_project/CherAmi/[Ll]ibrary/
+unity_project/CherAmi/[Tt]emp/
+unity_project/CherAmi/[Oo]bj/
+unity_project/CherAmi/[Bb]uild/
+unity_project/CherAmi/[Bb]uilds/
 unity_project/Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
