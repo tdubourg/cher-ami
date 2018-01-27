@@ -299,10 +299,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3
   m_Center: {x: 0, y: 2, z: 0}
---- !u!4 &1442866580 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400006, guid: 945c8bd115336444592b48777bae275e, type: 3}
-  m_PrefabInternal: {fileID: 1442866575}
 --- !u!54 &1442866581
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -350,8 +346,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc14069a3648d6a45ac3a67a78cc9161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pigeon: {fileID: 1442866576}
-  pigeonPosition: {fileID: 1442866580}
   speed: 10
 --- !u!23 &1565587687
 MeshRenderer:

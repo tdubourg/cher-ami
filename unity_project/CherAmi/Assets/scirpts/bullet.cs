@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class bullet : MonoBehaviour {
-    public GameObject pigeon;
-    public Transform pigeonPosition;
-    private Vector3 direction;
+    private Vector2 pigeonPosition;
+    private Vector2 direction;
     public int speed;
+    public int damage;
 
     // Use this for initialization
     void Start () {
         pigeon pigeon = pigeon.getInstance();
+        pigeonPosition = pigeon.transform.position;
         // Add velocity to the bullet
         direction = (pigeon.transform.position - this.transform.position).normalized;
 
@@ -21,6 +22,7 @@ public class bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.transform.Translate(direction * speed * Time.deltaTime);
+        this.transform.position = Vector2.MoveTowards(pigeonPosition, new Vector2(this.transform.position.x, this.transform.position.y), speed * Time.deltaTime);
+
     }
 }
