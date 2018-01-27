@@ -14,7 +14,9 @@ public class bullet : MonoBehaviour {
         // Add velocity to the bullet
         direction = (pigeon.transform.position - this.transform.position).normalized;
 
-        
+        //this rotates the bullet to face the pigeon
+        Vector2 dir = this.transform.position - pigeon.transform.position;
+        this.transform.right = dir;
     }
 	
 	// Update is called once per frame
