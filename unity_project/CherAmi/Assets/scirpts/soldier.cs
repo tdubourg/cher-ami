@@ -39,6 +39,6 @@ public class soldier : MonoBehaviour {
             bulletSpawn.rotation);
 
         // Destroy the bullet after 2 seconds
-        Destroy(bullet, 2.0f);
+        //Destroy(bullet, 2.0f);
     }
 }

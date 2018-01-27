@@ -366,7 +366,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc14069a3648d6a45ac3a67a78cc9161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pigeon: {fileID: 1442866576}
   pigeonPosition: {fileID: 1442866580}
+  speed: 10
 --- !u!23 &1565587687
 MeshRenderer:
   m_ObjectHideFlags: 0
