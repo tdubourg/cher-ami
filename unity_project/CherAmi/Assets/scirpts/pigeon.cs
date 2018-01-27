@@ -18,8 +18,6 @@ public class pigeon : MonoBehaviour {
 	private float y;
 
 	private int health = 100;
-	private int stamina = 100;
-
 
 	// Use this for initialization
 	void Start () {
@@ -50,16 +48,6 @@ public class pigeon : MonoBehaviour {
 		//
 	}
 
-	void OnCollisionEnter2D (Collision2D col)
-	{
-
-		Debug.Log ("2d Collision ENTER");
-//		if(col.gameObject.name == "bullet")
-//		{
-//			//Destroy(col.gameObject);
-//		}
-	}
-
 	void OnTriggerEnter (Collider other){
 		//Debug.Log ("TRIGGER ENTER");
 
@@ -67,6 +55,9 @@ public class pigeon : MonoBehaviour {
 
 		if (other.name.Contains("bullet")) {
 			this.ouch (other);
+		}
+		if (other.name.Contains ("ally")) {
+			GetComponent<game>().AddScore(1);
 		}
 	}
 
