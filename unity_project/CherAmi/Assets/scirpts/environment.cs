@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class environment : MonoBehaviour {
+    public GameObject soldierPrefab;
+
     public const int SOLDIERS_SPAWN_INTERVAL_SEC = 5;
     static List<soldier> soldiers = new List<soldier>();
     float timeSinceLastSoldierSpawn = 0;
-    public int TryAttribute = 0;
 	// Use this for initialization
 	void Start () {
 		
