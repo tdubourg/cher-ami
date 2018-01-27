@@ -81,28 +81,25 @@ public class pigeon : MonoBehaviour {
 		if (this.x < game.maxX) {
 			if (Input.GetKey(KeyCode.RightArrow)){
 				transform.position += Vector3.right * speed * dt;
-				Debug.Log (transform.position.x + "," + transform.position.y);
+				//Debug.Log (transform.position.x + "," + transform.position.y);
 			}
 		}
 
 		if (this.x > game.minX) {
 			if (Input.GetKey(KeyCode.LeftArrow)){
 				transform.position += Vector3.left * speed * dt;
-				Debug.Log (transform.position.x + "," + transform.position.y);
 			}
 		}
 
 		if (this.y < game.maxY) {
 			if (Input.GetKey(KeyCode.UpArrow)){
 				transform.position += Vector3.up * speed * dt;
-				Debug.Log (transform.position.x + "," + transform.position.y);
 			}
 		}
 
 		if (this.y > game.minY) {
 			if (Input.GetKey(KeyCode.DownArrow)){
 				transform.position += Vector3.down * speed * dt;
-				Debug.Log (transform.position.x + "," + transform.position.y);
 			}
 		}
 
