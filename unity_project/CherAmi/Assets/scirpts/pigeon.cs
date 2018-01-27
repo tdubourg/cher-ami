@@ -17,6 +17,10 @@ public class pigeon : MonoBehaviour {
 	private float x;
 	private float y;
 
+	private int health = 100;
+	private int stamina = 100;
+
+
 	// Use this for initialization
 	void Start () {
         pigeon.singleTon = this;
@@ -24,6 +28,26 @@ public class pigeon : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col) {
 		Debug.Log ("3D COLLISION ENTER");
+	}
+
+	void ouch(Collider bulletThatHit) {		
+		var b = bulletThatHit.gameObject.GetComponent<bullet>();
+		if (b.damage > 1) {
+			health = health - b.damage;
+		} else {
+			health = health - 1; //TODO fixed default
+		}
+
+		Debug.Log ("OUCH! Health is now " + health);
+		if (health <= 0) {
+			health = 0;
+			this.die ();
+		}
+	}
+
+	void die() {
+		Debug.Log ("GOODBYE CRUEL WORLD! I'M DED LOLZ");
+		//
 	}
 
 	void OnCollisionEnter2D (Collision2D col)
@@ -38,6 +62,12 @@ public class pigeon : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other){
 		//Debug.Log ("TRIGGER ENTER");
+
+		Debug.Log ("Collided with " + other.name);
+
+		if (other.name.Contains("bullet")) {
+			this.ouch (other);
+		}
 	}
 
 

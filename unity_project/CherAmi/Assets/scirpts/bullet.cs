@@ -18,9 +18,10 @@ public abstract class OwnNamedObject: MonoBehaviour
 public class bullet : OwnNamedObject {
     public GameObject pigeon;
     static int BULLETS_COUNT = 0;
-    public Transform pigeonPosition;
-    private Vector3 direction;
-    public int speed;
+    private Vector2 pigeonPosition;
+    private Vector2 direction;
+    public int speed = 20;
+    public int damage = 10;
 
     override public void nameIt()
     {
@@ -33,6 +34,7 @@ public class bullet : OwnNamedObject {
 
         nameIt();
         pigeon pigeon = pigeon.getInstance();
+        pigeonPosition = pigeon.transform.position;
         // Add velocity to the bullet
         direction = (pigeon.transform.position - this.transform.position).normalized;
 
@@ -43,6 +45,9 @@ public class bullet : OwnNamedObject {
 	
 	// Update is called once per frame
 	void Update () {
-        this.transform.Translate(direction * speed * Time.deltaTime);
+		this.transform.position = Vector2.MoveTowards(new Vector2(this.transform.position.x, this.transform.position.y), pigeonPosition, speed * Time.deltaTime);
+
+		//this.transform.position = pigeon.getInstance ().transform.position;
+
     }
 }
