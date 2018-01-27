@@ -8,6 +8,9 @@ public class game : MonoBehaviour {
     public static float minX = -50.0f;
     public static float maxY = 65.0f;
     public static float minY = 0.0f;
+
+	public GUIText scoreText;
+	private int score;
     
     public static Vector3 getSceneCenter()
     {
@@ -21,7 +24,18 @@ public class game : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+		score = 0;
+	}
+
+	public void AddScore (int newScoreValue)
+	{
+		score += newScoreValue;
+		UpdateScore ();
+	}
+
+	void UpdateScore ()
+	{
+		scoreText.text = "Score: " + score;
 	}
 	
 	// Update is called once per frame
