@@ -15,7 +15,6 @@ public class soldier : OwnNamedObject {
 
 
     public GameObject bulletPrefab;
-    public Transform bulletSpawn;
 
     // Use this for initialization
     void Start () {
@@ -39,9 +38,8 @@ public class soldier : OwnNamedObject {
         // Create the Bullet from the Bullet Prefab
         var bullet = (GameObject) Instantiate(
             bulletPrefab,
-            bulletSpawn.position,
-            bulletSpawn.rotation);
-        bullet.GetComponent<bullet>();
+            this.transform.position,
+            this.transform.rotation);
 
         // Destroy the bullet after 2 seconds
         //Destroy(bullet, 2.0f);
