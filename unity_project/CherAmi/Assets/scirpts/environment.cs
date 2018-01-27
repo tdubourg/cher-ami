@@ -18,8 +18,9 @@ public class environment : MonoBehaviour {
         this.timeSinceLastSoldierSpawn += dt;
         if (this.timeSinceLastSoldierSpawn > SOLDIERS_SPAWN_INTERVAL_SEC)
         {
+            this.timeSinceLastSoldierSpawn = 0;
             // spawn the soldier
-            Debug.Log("Yolo");
+            Debug.Log("Spawning a new soldier");
         }
     }
 }
