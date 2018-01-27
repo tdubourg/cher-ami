@@ -346,6 +346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc14069a3648d6a45ac3a67a78cc9161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownName: unnamed yet
+  pigeon: {fileID: 0}
   speed: 20
   damage: 20
 --- !u!23 &1565587687
@@ -539,7 +541,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492c43dc5a40b5f4fa3cd92d973884e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1565587685}
+  ownName: unnamed yet
+  bulletPrefab: {fileID: 1955251544366006, guid: 5dc7a6b1955139f4fb58ba42ee802634,
+    type: 2}
   bulletSpawn: {fileID: 1791986778}
 --- !u!114 &1791986780
 MonoBehaviour:
