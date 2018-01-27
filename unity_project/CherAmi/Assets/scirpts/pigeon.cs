@@ -17,6 +17,9 @@ public class pigeon : MonoBehaviour {
 	private float x;
 	private float y;
 
+	private int health = 100;
+	private int stamina = 100;
+
 	// Use this for initialization
 	void Start () {
         pigeon.singleTon = this;
@@ -24,6 +27,11 @@ public class pigeon : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col) {
 		Debug.Log ("3D COLLISION ENTER");
+	}
+
+	void ouch() {
+		health--;
+		Debug.Log ("OUCH! Health is now " + health);
 	}
 
 	void OnCollisionEnter2D (Collision2D col)
@@ -37,7 +45,12 @@ public class pigeon : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other){
-		Debug.Log ("TRIGGER ENTER");
+		//Debug.Log ("TRIGGER ENTER");
+		Debug.Log ("Collided with " + other.name);
+
+		if (other.name.Contains("bullet")) {
+			this.ouch ();
+		}
 	}
 
 
