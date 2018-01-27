@@ -21,6 +21,7 @@ public class environment : MonoBehaviour {
             this.timeSinceLastSoldierSpawn = 0;
             // spawn the soldier
             Debug.Log("Spawning a new soldier");
+          //  Instantiate(Player, new Vector3(0, 0, 0), Quaternion.identity);
         }
     }
 }
