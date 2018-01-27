@@ -14,11 +14,6 @@ public class pigeon : MonoBehaviour {
 
 	public float speed = 75.0f;
 
-	public float maxX = 50.0f;
-	public float minX = -50.0f;
-	public float maxY = 65.0f;
-	public float minY = 0.0f;
-
 	private float x;
 	private float y;
 
@@ -53,26 +48,26 @@ public class pigeon : MonoBehaviour {
 		this.x = transform.position.x;
 		this.y = transform.position.y;
 
-		if (this.x < this.maxX) {
+		if (this.x < game.maxX) {
 			if (Input.GetKey(KeyCode.RightArrow)){
 				transform.position += Vector3.right * speed * dt;
 				//Debug.Log (transform.position.x + "," + transform.position.y);
 			}
 		}
 
-		if (this.x > this.minX) {
+		if (this.x > game.minX) {
 			if (Input.GetKey(KeyCode.LeftArrow)){
 				transform.position += Vector3.left * speed * dt;
 			}
 		}
 
-		if (this.y < this.maxY) {
+		if (this.y < game.maxY) {
 			if (Input.GetKey(KeyCode.UpArrow)){
 				transform.position += Vector3.up * speed * dt;
 			}
 		}
 
-		if (this.y > this.minY) {
+		if (this.y > game.minY) {
 			if (Input.GetKey(KeyCode.DownArrow)){
 				transform.position += Vector3.down * speed * dt;
 			}
