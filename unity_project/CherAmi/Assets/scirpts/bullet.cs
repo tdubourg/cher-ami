@@ -20,7 +20,7 @@ public class bullet : OwnNamedObject {
     static int BULLETS_COUNT = 0;
     private Vector2 pigeonPosition;
     private Vector2 direction;
-    public int speed = 20;
+    public int speed = 50;
     public int damage = 10;
 
     override public void nameIt()
@@ -36,18 +36,25 @@ public class bullet : OwnNamedObject {
         pigeon pigeon = pigeon.getInstance();
         pigeonPosition = pigeon.transform.position;
         // Add velocity to the bullet
-        direction = (pigeon.transform.position - this.transform.position).normalized;
+		var heading = new Vector3(pigeonPosition.x, pigeonPosition.y, 0) - this.transform.position;
+		heading.y = 0;
+		var distance = heading.magnitude;
+		this.direction = heading / distance;
 
         //this rotates the bullet to face the pigeon
         Vector2 dir = this.transform.position - pigeon.transform.position;
         this.transform.right = dir;
+
+
     }
-	
+
 	// Update is called once per frame
 	void Update () {
-		this.transform.position = Vector2.MoveTowards(new Vector2(this.transform.position.x, this.transform.position.y), pigeonPosition, speed * Time.deltaTime);
-
-		//this.transform.position = pigeon.getInstance ().transform.position;
+		
+		if (direction.x > 0) {
+			direction = -direction;
+		}
+		transform.Translate(this.direction * speed * Time.deltaTime);
 
     }
 }

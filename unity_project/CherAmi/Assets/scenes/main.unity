@@ -348,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownName: unnamed yet
   pigeon: {fileID: 0}
-  speed: 20
+  speed: 50
   damage: 20
 --- !u!23 &1565587687
 MeshRenderer:
