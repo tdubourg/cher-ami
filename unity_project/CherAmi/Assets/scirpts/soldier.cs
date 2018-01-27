@@ -8,8 +8,12 @@ public class soldier : MonoBehaviour {
     float timeSinceLastShot = 0;
     // THis is mostly useful for debugging, so that every soldier has its own name
     string ownName = "unnamed yet";
-	// Use this for initialization
-	void Start () {
+
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
+
+    // Use this for initialization
+    void Start () {
         soldier.SOLDIERS_COUNT += 1;
         ownName = "Soldier N" + soldier.SOLDIERS_COUNT;
 	}
@@ -21,8 +25,20 @@ public class soldier : MonoBehaviour {
         if (this.timeSinceLastShot > INTERVAL_BETWEEN_SHOTS_IN_SEC)
         {
             this.timeSinceLastShot = 0;
-
+            Fire();
             Debug.Log("Spawning a new bullet for soldier " + ownName);
         }
 	}
+
+    void Fire()
+    {
+        // Create the Bullet from the Bullet Prefab
+        var bullet = (GameObject)Instantiate(
+            bulletPrefab,
+            bulletSpawn.position,
+            bulletSpawn.rotation);
+
+        // Destroy the bullet after 2 seconds
+        Destroy(bullet, 2.0f);
+    }
 }

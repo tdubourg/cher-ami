@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc14069a3648d6a45ac3a67a78cc9161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pigeonPosition: {fileID: 0}
 --- !u!23 &1565587687
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -425,6 +426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492c43dc5a40b5f4fa3cd92d973884e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1565587685}
+  bulletSpawn: {fileID: 1791986778}
 --- !u!1 &2004514532
 GameObject:
   m_ObjectHideFlags: 0
