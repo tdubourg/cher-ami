@@ -19,7 +19,17 @@ public class pigeon : MonoBehaviour {
 	void Start () {
 		
 	}
-	
+
+	void OnCollisionEnter (Collision col)
+	{
+
+		Debug.Log ("Collision");
+//		if(col.gameObject.name == "bullet")
+//		{
+//			//Destroy(col.gameObject);
+//		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		var dt = Time.deltaTime;
