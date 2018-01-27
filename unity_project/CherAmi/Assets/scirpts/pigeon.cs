@@ -22,15 +22,24 @@ public class pigeon : MonoBehaviour {
         pigeon.singleTon = this;
 	}
 
-	void OnCollisionEnter (Collision col)
+	void OnCollisionEnter (Collision col) {
+		Debug.Log ("3D COLLISION ENTER");
+	}
+
+	void OnCollisionEnter2D (Collision2D col)
 	{
 
-		Debug.Log ("Collision");
+		Debug.Log ("2d Collision ENTER");
 //		if(col.gameObject.name == "bullet")
 //		{
 //			//Destroy(col.gameObject);
 //		}
 	}
+
+	void OnTriggerEnter (Collider other){
+		Debug.Log ("TRIGGER ENTER");
+	}
+
 
 	// Update is called once per frame
 	void Update () {
