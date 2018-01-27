@@ -5,6 +5,13 @@ using UnityEngine;
 public class pigeon : MonoBehaviour {
 
 
+    static pigeon singleTon = null;
+
+    public static pigeon getInstance()
+    {
+        return pigeon.singleTon;
+    }
+
 	public float speed = 75.0f;
 
 	public float maxX = 50.0f;
@@ -17,7 +24,7 @@ public class pigeon : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        pigeon.singleTon = this;
 	}
 
 	void OnCollisionEnter (Collision col)
