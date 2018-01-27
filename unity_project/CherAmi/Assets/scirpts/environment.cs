@@ -5,6 +5,9 @@ using UnityEngine;
 public class environment : MonoBehaviour {
     public GameObject soldierPrefab;
 
+    public const float ENVIRONMENT_SCROLL_SPEED = 0.5f;
+    public static Vector3 ENVIRONMENT_SCROLL_VECTOR = new Vector3(-1, 0, 0);
+
     public const int SOLDIERS_SPAWN_INTERVAL_SEC = 3;
     static List<soldier> soldiers = new List<soldier>();
     float timeSinceLastSoldierSpawn = 0;
