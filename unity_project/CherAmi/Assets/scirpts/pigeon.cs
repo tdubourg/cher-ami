@@ -37,7 +37,7 @@ public class pigeon : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other){
-		Debug.Log ("TRIGGER ENTER");
+		//Debug.Log ("TRIGGER ENTER");
 	}
 
 

@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class soldier : MonoBehaviour {
+public class soldier : OwnNamedObject {
     const int INTERVAL_BETWEEN_SHOTS_IN_SEC = 1;
     static int SOLDIERS_COUNT = 0;
     float timeSinceLastShot = 0;
-    // THis is mostly useful for debugging, so that every soldier has its own name
-    string ownName = "unnamed yet";
+
+    override public void nameIt()
+    {
+        soldier.SOLDIERS_COUNT += 1;
+        ownName = "Soldier N" + soldier.SOLDIERS_COUNT;
+    }
+
 
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
 
     // Use this for initialization
     void Start () {
-        soldier.SOLDIERS_COUNT += 1;
-        ownName = "Soldier N" + soldier.SOLDIERS_COUNT;
+        nameIt();
 	}
 	
 	// Update is called once per frame
@@ -26,17 +30,18 @@ public class soldier : MonoBehaviour {
         {
             this.timeSinceLastShot = 0;
             Fire();
-            Debug.Log("Spawning a new bullet for soldier " + ownName);
+           // Debug.Log("Spawning a new bullet for soldier " + ownName);
         }
 	}
 
     void Fire()
     {
         // Create the Bullet from the Bullet Prefab
-        var bullet = (GameObject)Instantiate(
+        var bullet = (GameObject) Instantiate(
             bulletPrefab,
             bulletSpawn.position,
             bulletSpawn.rotation);
+        bullet.GetComponent<bullet>();
 
         // Destroy the bullet after 2 seconds
         //Destroy(bullet, 2.0f);
