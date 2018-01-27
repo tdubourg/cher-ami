@@ -275,10 +275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 75
-  maxX: 50
-  minX: -50
-  maxY: 65
-  minY: 0
 --- !u!114 &1442866578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +331,7 @@ GameObject:
   - component: {fileID: 1565587686}
   - component: {fileID: 1565587688}
   - component: {fileID: 1565587691}
+  - component: {fileID: 1565587692}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -438,6 +435,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1565587692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1565587685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023badbf0ddda6f4284416265cd29510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DISTANCE_FROM_BOUNDING_BOX_CENTER: 0
 --- !u!1 &1791986774
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +459,7 @@ GameObject:
   - component: {fileID: 1791986776}
   - component: {fileID: 1791986775}
   - component: {fileID: 1791986779}
+  - component: {fileID: 1791986780}
   m_Layer: 0
   m_Name: soldier
   m_TagString: Untagged
@@ -536,6 +546,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1565587685}
   bulletSpawn: {fileID: 1791986778}
+--- !u!114 &1791986780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791986774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023badbf0ddda6f4284416265cd29510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DISTANCE_FROM_BOUNDING_BOX_CENTER: 0
 --- !u!1 &2004514532
 GameObject:
   m_ObjectHideFlags: 0
