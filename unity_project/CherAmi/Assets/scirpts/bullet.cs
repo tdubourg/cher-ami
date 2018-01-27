@@ -6,7 +6,7 @@ public class bullet : MonoBehaviour {
     private Vector2 pigeonPosition;
     private Vector2 direction;
     public int speed;
-    public int damage;
+    public int damage = 10;
 
     // Use this for initialization
     void Start () {
