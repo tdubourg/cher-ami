@@ -29,9 +29,20 @@ public class pigeon : MonoBehaviour {
 		Debug.Log ("3D COLLISION ENTER");
 	}
 
-	void ouch() {
-		health--;
+	void ouch(Collider bullet) {
+		health = health - 10; //TODO: bullet.damage
+		//
+
 		Debug.Log ("OUCH! Health is now " + health);
+		if (health <= 0) {
+			health = 0;
+			this.die ();
+		}
+	}
+
+	void die() {
+		Debug.Log ("GOODBYE CRUEL WORLD! I'M DED LOLZ");
+		//
 	}
 
 	void OnCollisionEnter2D (Collision2D col)
@@ -49,7 +60,7 @@ public class pigeon : MonoBehaviour {
 		Debug.Log ("Collided with " + other.name);
 
 		if (other.name.Contains("bullet")) {
-			this.ouch ();
+			this.ouch (other);
 		}
 	}
 
