@@ -5,7 +5,7 @@ using UnityEngine;
 public class bullet : MonoBehaviour {
     private Vector2 pigeonPosition;
     private Vector2 direction;
-    public int speed;
+    public int speed = 20;
     public int damage = 10;
 
     // Use this for initialization
@@ -22,7 +22,9 @@ public class bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.transform.position = Vector2.MoveTowards(pigeonPosition, new Vector2(this.transform.position.x, this.transform.position.y), speed * Time.deltaTime);
+		this.transform.position = Vector2.MoveTowards(new Vector2(this.transform.position.x, this.transform.position.y), pigeonPosition, speed * Time.deltaTime);
+
+		//this.transform.position = pigeon.getInstance ().transform.position;
 
     }
 }
