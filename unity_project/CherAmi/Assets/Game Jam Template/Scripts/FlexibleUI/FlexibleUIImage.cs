@@ -18,7 +18,7 @@ public class FlexibleUIImage : FlexibleUI
     protected override void OnSkinUI()
     {
         base.OnSkinUI();
-        image.color = flexibleUIData.imageColor;
+        //image.color = flexibleUIData.imageColor;
     }
 
 
