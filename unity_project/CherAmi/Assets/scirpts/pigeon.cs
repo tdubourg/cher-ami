@@ -9,6 +9,8 @@ public class pigeon : MonoBehaviour {
     public const int PIGEON_HIT_BLINK_NUMBER = 3;
     public const float PIGEON_HIT_BLINK_INTERVAL = 0.1f;
 
+    public GameObject feathers;
+
     static pigeon singleTon = null;
 
     public int Health
@@ -89,7 +91,9 @@ public class pigeon : MonoBehaviour {
 
 		health = health - bullet.DAMAGE;
 		Destroy (bulletThatHit.gameObject);
-		//Debug.Log ("OUCH! Health is now " + health);
+        var f = (GameObject)Instantiate(feathers, game.getInstance().groundGameObject.transform.position, game.getInstance().groundGameObject.transform.rotation);
+        f.transform.SetPositionAndRotation(new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), game.getInstance().groundGameObject.transform.rotation);
+        //Debug.Log ("OUCH! Health is now " + health);
 		if (health <= 0) {
 			health = 0;
 			this.die ();
