@@ -96,13 +96,11 @@ public class game : MonoBehaviour {
         UpdateHealth();
 		if (restart)
 		{
-			if (Input.GetKeyDown (KeyCode.R))
+			if (Input.anyKey)
 			{
-				//Time.timeScale = 1;
-				SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
-				//SceneManager.loadScene(Scene
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			}
-		}
+        }
 
         this.timeSinceLastSgtStubbyTrigger += dt;
         if (this.timeSinceLastSgtStubbyTrigger > SGT_STUBBY_TRIGGER_INTERVAL)
@@ -114,11 +112,10 @@ public class game : MonoBehaviour {
 		if (gameOver)
 		{
 			//Time.timeScale = 0;
-			restartText.text = "Game Over! Press 'R' to Restart";
+			restartText.text = "Game Over! Click or press any button to restart";
 			restart = true;
-			//break;
-
-		}
+            //break;
+        }
     }
 
     public void triggerSgtStubby()
