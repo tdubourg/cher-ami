@@ -19,8 +19,9 @@ public class bullet : OwnNamedObject {
     static int BULLETS_COUNT = 0;
     private Vector2 pigeonPosition;
     private Vector2 direction;
-    private int speed = 50;
+    private int speed = 90;
     public const int DAMAGE = 5;
+    public const float PIGEON_SHOOT_DIRECTION_Y_OFFSET = 7.0f;
 
     override public void nameIt()
     {
@@ -33,16 +34,17 @@ public class bullet : OwnNamedObject {
 
         nameIt();
         pigeon pigeon = pigeon.getInstance();
-        var pigeonPosition = pigeon.getInstance().GetComponent<Collider>().transform.position;
+        var pCollider = pigeon.getInstance().GetComponent<Collider>();
+        var pigeonPosition = pCollider.transform.position;
         // Add velocity to the bullet
-		var heading = new Vector3(pigeonPosition.x, pigeonPosition.y, pigeonPosition.z) - this.transform.position;
-		heading.y = 0;
-		var distance = heading.magnitude;
-		this.direction = heading / distance;
+		var heading = pigeonPosition + new Vector3(0, PIGEON_SHOOT_DIRECTION_Y_OFFSET, 0) - this.transform.position;
+		//heading.y = 0;
+		//var distance = heading.magnitude;
+		//this.direction = heading / distance;
 
         //this rotates the bullet to face the pigeon
-        Vector2 dir = this.transform.position - pigeon.transform.position;
-        this.transform.right = dir;
+        //Vector2 dir = this.transform.position - pigeon.transform.position;
+        this.transform.right = heading.normalized;
 
 
     }
@@ -53,7 +55,7 @@ public class bullet : OwnNamedObject {
 		if (direction.x > 0) {
 			direction = -direction;
 		}
-		transform.Translate(this.direction * speed * Time.deltaTime);
+		transform.Translate(new Vector3(1, 0, 0) * speed * Time.deltaTime);
 
     }
 }

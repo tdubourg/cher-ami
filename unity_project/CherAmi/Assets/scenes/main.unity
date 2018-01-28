@@ -113,34 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &76522177
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 945c8bd115336444592b48777bae275e, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 76522178}
-  m_Layer: 0
-  m_Name: CINEMA_4D_Editor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &76522178
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 945c8bd115336444592b48777bae275e, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 76522177}
-  m_LocalRotation: {x: 0.03636649, y: 0.99847233, z: 0.0015141367, w: 0.04157189}
-  m_LocalPosition: {x: -18.670841, y: 5.5962687, z: -1.2392807}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1442866582}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &96844715 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400026, guid: 768e1542b83115047895c1bec43a0d25, type: 3}
@@ -182,7 +154,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4198740951108274, guid: 264a0f64155d72c41b134048fb470f0a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4198740951108274, guid: 264a0f64155d72c41b134048fb470f0a, type: 2}
       propertyPath: m_LocalScale.x
@@ -1084,7 +1056,6 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 96844715}
-  - {fileID: 76522178}
   - {fileID: 1316452878}
   m_Father: {fileID: 0}
   m_RootOrder: 2
