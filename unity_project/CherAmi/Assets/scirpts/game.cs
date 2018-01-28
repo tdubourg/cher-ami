@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class game : MonoBehaviour {
     public GameObject SgtStubbyPrefab;
-
+    public GameObject groundGameObject;
     static game singleTon = null;
 
     public static game getInstance()
@@ -19,6 +19,9 @@ public class game : MonoBehaviour {
     public static float minX = -50.0f;
     public static float maxY = 65.0f;
     public static float minY = 0.0f;
+
+    const int SGT_STUBBY_TRIGGER_INTERVAL = 20;
+    float timeSinceLastSgtStubbyTrigger = 0;
 
 
 	public Text restartText;
@@ -80,6 +83,7 @@ public class game : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        var dt = Time.deltaTime;
         UpdateHealth();
 		if (restart)
 		{
@@ -91,6 +95,13 @@ public class game : MonoBehaviour {
 			}
 		}
 
+        this.timeSinceLastSgtStubbyTrigger += dt;
+        if (this.timeSinceLastSgtStubbyTrigger > SGT_STUBBY_TRIGGER_INTERVAL)
+        {
+            this.timeSinceLastSgtStubbyTrigger = 0;
+            triggerSgtStubby();
+        }
+
 		if (gameOver)
 		{
 			//Time.timeScale = 0;
@@ -100,6 +111,13 @@ public class game : MonoBehaviour {
 
 		}
     }
+
+    public void triggerSgtStubby()
+    {
+        //var newSgtStubby = (GameObject)Instantiate(SgtStubbyPrefab);
+    }
+
+
 
     static public bool IsWithinGamesBounds(Vector3 p)
     {
