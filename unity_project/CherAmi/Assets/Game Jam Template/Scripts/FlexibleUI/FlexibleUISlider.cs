@@ -18,7 +18,7 @@ public class FlexibleUISlider : FlexibleUI
     protected override void OnSkinUI()
     {
         base.OnSkinUI();
-        slider.colors = flexibleUIData.sliderColorBlock;
+        //slider.colors = flexibleUIData.sliderColorBlock;
     }
 
 
