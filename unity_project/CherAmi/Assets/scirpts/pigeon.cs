@@ -70,7 +70,7 @@ public class pigeon : MonoBehaviour {
             //Debug.Log("Turning renderer OFF");
 
             DisableAllRenderers();
-                        yield return new WaitForSeconds(PIGEON_HIT_BLINK_INTERVAL);
+            yield return new WaitForSeconds(PIGEON_HIT_BLINK_INTERVAL);
             //Debug.Log("Turning renderer ON");
 
             //GetComponent<Renderer>().enabled = true;
@@ -131,7 +131,7 @@ public class pigeon : MonoBehaviour {
 		}
         else if (other.name.Contains("soldier"))
         {
-            // die if you touchb a soldier!
+            // die if you touch a soldier!
             this.die();
         }
 
@@ -146,26 +146,26 @@ public class pigeon : MonoBehaviour {
 		this.y = transform.position.y;
 
 		if (this.x < game.maxX) {
-			if (Input.GetKey(KeyCode.RightArrow)){
+			if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)){
 				transform.position += Vector3.right * speed * dt;
 				//Debug.Log (transform.position.x + "," + transform.position.y);
 			}
 		}
 
 		if (this.x > game.minX) {
-			if (Input.GetKey(KeyCode.LeftArrow)){
+			if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)){
 				transform.position += Vector3.left * speed * dt;
 			}
 		}
 
 		if (this.y < game.maxY) {
-			if (Input.GetKey(KeyCode.UpArrow)){
+			if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)){
 				transform.position += Vector3.up * speed * dt;
 			}
 		}
 
 		if (this.y > game.minY) {
-			if (Input.GetKey(KeyCode.DownArrow)){
+			if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)){
 				transform.position += Vector3.down * speed * dt;
 			}
 		}

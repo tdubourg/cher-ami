@@ -78,8 +78,10 @@ public class game : MonoBehaviour {
 
     void UpdateHealth()
     {
-        health = pigeon.getInstance().Health;
-        healthText.text = health.ToString();
+		if (pigeon.getInstance() != null) {  //Prevent null reference
+			health = pigeon.getInstance().Health;
+			healthText.text = health.ToString();
+		}        
     }
 
 	public void GameOver ()
