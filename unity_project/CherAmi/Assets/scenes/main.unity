@@ -1388,6 +1388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f14a38e971ed14c86a157204bbfae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feathers: {fileID: 1225982028341738, guid: 0a6033b4788f9c44abc7c52d597062eb, type: 2}
   speed: 100
 --- !u!114 &1442866578
 MonoBehaviour:
