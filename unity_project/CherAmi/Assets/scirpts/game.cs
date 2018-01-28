@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class game : MonoBehaviour {
 
@@ -9,9 +11,11 @@ public class game : MonoBehaviour {
     public static float maxY = 65.0f;
     public static float minY = 0.0f;
 
-	public GUIText scoreText;
+	public Text scoreText;
+	public Text healthText;
 	private int score;
-    
+    private int health;
+
     public static Vector3 getSceneCenter()
     {
         return new Vector3((maxX - minX) / 2, (maxY - minY) / 2, 0);
@@ -25,7 +29,10 @@ public class game : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		score = 0;
-	}
+		health = 100;
+        scoreText.text = "Score: " + score;
+        healthText.text = "Health: " + health;
+    }
 
 	public void AddScore (int newScoreValue)
 	{
@@ -37,11 +44,17 @@ public class game : MonoBehaviour {
 	{
 		scoreText.text = "Score: " + score;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    void UpdateHealth()
+    {
+        health = pigeon.getInstance().Health;
+        healthText.text = "Health: " + health;
+    }
+
+    // Update is called once per frame
+    void Update () {
+        UpdateHealth();
+    }
 
     static public bool IsWithinGamesBounds(Vector3 p)
     {
