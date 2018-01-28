@@ -103,7 +103,6 @@ public class soldier : OwnNamedObject {
             this.transform.rotation);
 
         var rifle = getChildGameObject(this.gameObject, "rifle");
-        Debug.Log(rifle);
         var height = rifle.transform.lossyScale.y;
         var width = rifle.transform.lossyScale.x;
         var y = rifle.transform.position.y + 0.15f * height; // rifle seems located aout 85% up
