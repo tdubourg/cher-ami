@@ -3,12 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class soldier : OwnNamedObject {
+    public const int SOLDIER_HIT_BLINK_NUMBER = 3;
+    public const float SOLDIER_HIT_BLINK_INTERVAL = 0.1f;
+
     const int INTERVAL_BETWEEN_SHOTS_IN_SEC = 1;
     static int SOLDIERS_COUNT = 0;
     float timeSinceLastShot = 0;
     public AudioClip firingSound1;
     public AudioClip firingSound2;
     AudioSource audioSource;
+
+
+    void DisableAllRenderers()
+    {
+        var allRenderers = gameObject.GetComponentsInChildren<Renderer>();
+
+        foreach (var childRenderer in allRenderers)
+        {
+            childRenderer.enabled = false;
+        }
+    }
+
+    void EnableAllRenderers()
+    {
+        var allRenderers = gameObject.GetComponentsInChildren<Renderer>();
+
+        foreach (var childRenderer in allRenderers)
+        {
+            childRenderer.enabled = true;
+        }
+    }
+
+
+    IEnumerator blinkAndDie()
+    {
+        //Debug.Log("Entering blink()");
+        for (int i = 0; i < SOLDIER_HIT_BLINK_NUMBER; i++)
+        {
+            //Debug.Log("Turning renderer OFF");
+
+            DisableAllRenderers();
+            yield return new WaitForSeconds(SOLDIER_HIT_BLINK_INTERVAL);
+            //Debug.Log("Turning renderer ON");
+
+            //GetComponent<Renderer>().enabled = true;
+            EnableAllRenderers();
+            yield return new WaitForSeconds(SOLDIER_HIT_BLINK_INTERVAL);
+
+        }
+        Destroy(this.gameObject);
+    }
+
 
     override public void nameIt()
     {
@@ -36,6 +81,12 @@ public class soldier : OwnNamedObject {
            // Debug.Log("Spawning a new bullet for soldier " + ownName);
         }
 	}
+
+    public void die()
+    {
+        StartCoroutine(blinkAndDie());
+        
+    }
 
     void Fire()
     {
