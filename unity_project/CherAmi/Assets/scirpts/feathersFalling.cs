@@ -10,7 +10,7 @@ public class feathersFalling : MonoBehaviour {
 	}
 
     int rotationSign = 1;
-    float rotationSignChangeInterval = 0.8f;
+    float rotationSignChangeInterval = 0.2f;
     float timesincerotationchange = 0.0f;
 	// Update is called once per frame
 	void Update () {
@@ -25,11 +25,13 @@ public class feathersFalling : MonoBehaviour {
         //float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
         //Quaternion target = Quaternion.Euler(0, 0, tiltAroundZ);
         ////transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
-        this.transform.Rotate(new Vector3(0, 0, 10 * rotationSign));
+        this.transform.Rotate(new Vector3(0, 0, 5 * rotationSign));
         if (timesincerotationchange > rotationSignChangeInterval)
         {
             timesincerotationchange = 0;
-        rotationSign = -1 * rotationSign;
+            rotationSign = -1 * rotationSign;
+            Debug.Log("Changing rotation: " + rotationSign);
+
         }
     }
 }
