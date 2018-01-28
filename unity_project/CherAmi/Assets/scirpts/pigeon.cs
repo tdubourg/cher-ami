@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class pigeon : MonoBehaviour {
-
+    const bool INVICIBLE_MODE = true;
 
     static pigeon singleTon = null;
 
     public int Health
     {
-        get { return health; }
+        get { return INVICIBLE_MODE ? 10000 : health; }
     }
 
     public static pigeon getInstance()
@@ -49,6 +49,7 @@ public class pigeon : MonoBehaviour {
 	}
 
 	void die() {
+        if (INVICIBLE_MODE) { return;  }
 		Debug.Log ("GOODBYE CRUEL WORLD! I'M DED LOLZ");
 		Destroy(this.gameObject);
 	}
