@@ -57,7 +57,7 @@ public class pigeon : MonoBehaviour {
 			this.ouch (other);
 		}
 		if (other.name.Contains ("ally")) {
-			GetComponent<game>().AddScore(1);
+			game.getInstance().AddScore(1);
 		}
 	}
 

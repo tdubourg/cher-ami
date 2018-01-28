@@ -6,15 +6,18 @@ public class environment : MonoBehaviour {
     public GameObject soldierPrefab;
     public GameObject landingPlatformPrefab;
     public GameObject spawnPoint;
+    public GameObject allyPrefab;
+
 
     public const float ENVIRONMENT_SCROLL_SPEED = 0.5f;
     public static Vector3 ENVIRONMENT_SCROLL_VECTOR = new Vector3(-1, 0, 0);
 
     public const int SOLDIERS_SPAWN_INTERVAL_SEC = 3;
     public const int PLATFORMS_SPAWN_INTERVAL_SEC = 4;
+    public const int ALLY_ON_PLATFORM_FREQUENCY = 3; // an ally is on the platform every X platforms spawning
     static List<soldier> soldiers = new List<soldier>();
     float timeSinceLastSoldierSpawn = 0; float timeSinceLastEmptyPlatformSpawn = 0;
-
+    int platformsSinceLastAlly = 0;
     // Use this for initialization
     void Start () {
 		
@@ -40,7 +43,9 @@ public class environment : MonoBehaviour {
             vec = new Vector3(vec.x, vec.y + soldier.transform.lossyScale.y / 2, vec.z);
             soldier.transform.SetPositionAndRotation(vec, spawnPoint.transform.rotation);
         } else if (this.timeSinceLastEmptyPlatformSpawn > PLATFORMS_SPAWN_INTERVAL_SEC) {
-                this.timeSinceLastEmptyPlatformSpawn = 0;
+            this.platformsSinceLastAlly += 1;
+
+                    this.timeSinceLastEmptyPlatformSpawn = 0;
                 // spawn the soldier
                 Debug.Log("Spawning a new platform");
 
@@ -51,6 +56,16 @@ public class environment : MonoBehaviour {
                 var vec = spawnPoint.transform.position;
                 vec = new Vector3(vec.x, vec.y + emptyPlatform.transform.lossyScale.y / 2, vec.z);
             emptyPlatform.transform.SetPositionAndRotation(vec, spawnPoint.transform.rotation);
+            if (this.platformsSinceLastAlly > ALLY_ON_PLATFORM_FREQUENCY)
+            {
+                Debug.Log("Ally on the platform");
+                this.platformsSinceLastAlly = 0;
+                var platTr = emptyPlatform.transform;
+                var ally = (GameObject)Instantiate(allyPrefab, platTr, platTr);
+                var y = platTr.position.y + platTr.lossyScale.y / 2.0f + ally.transform.lossyScale.y / 2.0f;
+                var position = new Vector3(platTr.position.x, y, platTr.position.z);
+                ally.transform.SetPositionAndRotation(position, platTr.rotation);
+            }
         }
     }
 }
