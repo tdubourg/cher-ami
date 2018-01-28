@@ -12,6 +12,7 @@ public class game : MonoBehaviour {
     public GameObject SgtStubbyPrefab;
     public GameObject groundGameObject;
     static game singleTon = null;
+    public GameObject restartImage;
 
     public static game getInstance()
     {
@@ -65,6 +66,8 @@ public class game : MonoBehaviour {
 		health = 100;
         scoreText.text = score.ToString();
         healthText.text = health.ToString();
+
+        restartImage.SetActive(false);
     }
 
     public void AddScore (int newScoreValue)
@@ -96,12 +99,9 @@ public class game : MonoBehaviour {
     void Update () {
         var dt = Time.deltaTime;
         UpdateHealth();
-		if (restart)
-		{
-			if (Input.anyKeyDown)
-			{
-				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-			}
+        if (restart)
+        {
+            restartImage.SetActive(true);
         }
 
         this.timeSinceLastSgtStubbyTrigger += dt;
@@ -114,7 +114,7 @@ public class game : MonoBehaviour {
 		if (gameOver)
 		{
 			//Time.timeScale = 0;
-			restartText.text = "Game Over! Click or press any button to restart";
+			//restartText.text = "Game Over! Click or press any button to restart";
 			restart = true;
             //break;
         }
