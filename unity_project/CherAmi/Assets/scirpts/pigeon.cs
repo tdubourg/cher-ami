@@ -17,7 +17,7 @@ public class pigeon : MonoBehaviour {
         return pigeon.singleTon;
     }
 
-	public float speed = 90.0f;
+	public float speed;
 
 	private float x;
 	private float y;
@@ -27,10 +27,6 @@ public class pigeon : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         pigeon.singleTon = this;
-	}
-
-	void OnCollisionEnter (Collision col) {
-		Debug.Log ("3D COLLISION ENTER");
 	}
 
 	void ouch(Collider bulletThatHit) {				
@@ -47,8 +43,7 @@ public class pigeon : MonoBehaviour {
 	void die() {
         if (INVICIBLE_MODE) { return;  }
 		Debug.Log ("GOODBYE CRUEL WORLD! I'M DED LOLZ");
-		//Destroy(this.gameObject);
-		//GetComponent<game> ().GameOver ();
+
 		gameObject.SetActive(false);
 
 		game.getInstance().GameOver();
@@ -64,8 +59,11 @@ public class pigeon : MonoBehaviour {
 			Destroy (other);
 		}
 		if (other.name.Contains ("ally")) {
-			game.getInstance().AddScore(1);
+			game.getInstance().AddScore(10);
+			health = 100;
+			Destroy (other.gameObject);
 		}
+
 	}
 
 

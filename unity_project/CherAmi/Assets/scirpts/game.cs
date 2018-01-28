@@ -114,7 +114,11 @@ public class game : MonoBehaviour {
 
     public void triggerSgtStubby()
     {
-        //var newSgtStubby = (GameObject)Instantiate(SgtStubbyPrefab);
+        var newSgtStubby = (GameObject)Instantiate(SgtStubbyPrefab, groundGameObject.transform, groundGameObject.transform);
+        var x = groundGameObject.transform.position.x - groundGameObject.transform.lossyScale.x / 2.0f - newSgtStubby.transform.lossyScale.x; // not dividing sgtstubby width by 2 in purpose, to give it a bit of distance
+        var y = groundGameObject.transform.position.y + groundGameObject.transform.lossyScale.y / 2.0f + newSgtStubby.transform.lossyScale.y / 2;
+        var position = new Vector3(x, y, groundGameObject.transform.position.z);
+        newSgtStubby.transform.SetPositionAndRotation(position, groundGameObject.transform.rotation);
     }
 
 

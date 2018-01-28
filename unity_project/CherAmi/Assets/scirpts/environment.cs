@@ -14,7 +14,7 @@ public class environment : MonoBehaviour {
 
     public const int SOLDIERS_SPAWN_INTERVAL_SEC = 3;
     public const int PLATFORMS_SPAWN_INTERVAL_SEC = 4;
-    public const int ALLY_ON_PLATFORM_FREQUENCY = 3; // an ally is on the platform every X platforms spawning
+    public const int ALLY_ON_PLATFORM_FREQUENCY = 2; // an ally is on the platform every X platforms spawning
     public const double MINIMUM_TIME_BETWEEN_ANY_SPAWN_IN_SEC = 1.5;
     static List<soldier> soldiers = new List<soldier>();
     float timeSinceLastSoldierSpawn = 0; float timeSinceLastEmptyPlatformSpawn = 0;
