@@ -22,6 +22,7 @@ public class game : MonoBehaviour {
         //Debug.Log(result);
         return result;
     }
+    public GameObject restartImage;
 
     public static game getInstance()
     {
@@ -76,6 +77,8 @@ public class game : MonoBehaviour {
         scoreText.text = score.ToString();
         healthText.text = health.ToString();
         sinceGameStartedOrRestarted = 0.0f;
+
+        restartImage.SetActive(false);
     }
 
     public void AddScore (int newScoreValue)
@@ -108,12 +111,9 @@ public class game : MonoBehaviour {
         var dt = Time.deltaTime;
         sinceGameStartedOrRestarted += dt;
         UpdateHealth();
-		if (restart)
-		{
-			if (Input.anyKey)
-			{
-				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-			}
+        if (restart)
+        {
+            restartImage.SetActive(true);
         }
 
         this.timeSinceLastSgtStubbyTrigger += dt;
@@ -126,7 +126,7 @@ public class game : MonoBehaviour {
 		if (gameOver)
 		{
 			//Time.timeScale = 0;
-			restartText.text = "Game Over! Click or press any button to restart";
+			//restartText.text = "Game Over! Click or press any button to restart";
 			restart = true;
             //break;
         }
