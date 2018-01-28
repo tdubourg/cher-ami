@@ -98,7 +98,7 @@ public class game : MonoBehaviour {
         UpdateHealth();
 		if (restart)
 		{
-			if (Input.anyKey)
+			if (Input.anyKeyDown)
 			{
 				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			}
