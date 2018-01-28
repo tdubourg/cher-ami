@@ -35,8 +35,9 @@ public class pigeon : MonoBehaviour {
 
 	void ouch(Collider bulletThatHit) {		
 		var b = bulletThatHit.gameObject.GetComponent<bullet>();
-		if (b.damage > 1) {
-			health = health - b.damage;
+
+		if (bullet.DAMAGE > 1) {
+			health = health - bullet.DAMAGE;
 		} else {
 			health = health - 1; //TODO fixed default
 		}

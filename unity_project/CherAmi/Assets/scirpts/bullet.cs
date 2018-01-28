@@ -20,7 +20,7 @@ public class bullet : OwnNamedObject {
     private Vector2 pigeonPosition;
     private Vector2 direction;
     private int speed = 50;
-    public int damage = 5;
+    public const int DAMAGE = 5;
 
     override public void nameIt()
     {
