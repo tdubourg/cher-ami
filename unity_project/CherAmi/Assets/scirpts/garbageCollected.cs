@@ -12,7 +12,7 @@ public class garbageCollected : MonoBehaviour {
         var bound_box_diagonal_from_center = Mathf.Sqrt(Mathf.Pow(game.maxY - game.minY, 2) + Mathf.Pow(game.maxX - game.minX, 2));
         // We start to garbage collect when the object is more than 1.5x the bounding box diagonal away from the center. This gives us a little bit of margin
         DISTANCE_FROM_BOUNDING_BOX_CENTER = 1.5f * bound_box_diagonal_from_center;
-        Debug.Log("distance threshold for deletion:" + DISTANCE_FROM_BOUNDING_BOX_CENTER);
+        //Debug.Log("distance threshold for deletion:" + DISTANCE_FROM_BOUNDING_BOX_CENTER);
         this.onb = this.transform.GetComponent<OwnNamedObject>();
     }
 	
@@ -29,14 +29,14 @@ public class garbageCollected : MonoBehaviour {
 
     void collectGarbage()
     {
-        Debug.Log("Trying to garbage collect " + this.onb.getOwnName());
+        //Debug.Log("Trying to garbage collect " + this.onb.getOwnName());
         if (!game.IsWithinGamesBounds(this.transform.position))
         {
-            Debug.Log(this.onb.getOwnName() + " is not within the bouding box");
-            Debug.Log("Scene center:" + game.getSceneCenter());
+            //Debug.Log(this.onb.getOwnName() + " is not within the bouding box");
+            //Debug.Log("Scene center:" + game.getSceneCenter());
             if (game.getDistanceFromSceneCenter(this.transform.position) > DISTANCE_FROM_BOUNDING_BOX_CENTER)
             {
-                Debug.Log(this.onb.getOwnName() + " got too far, destroying it.");
+                //Debug.Log(this.onb.getOwnName() + " got too far, destroying it.");
                 Destroy(this.gameObject);
             }
         }

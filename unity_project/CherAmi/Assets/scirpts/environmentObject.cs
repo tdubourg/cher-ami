@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class environmentObject : MonoBehaviour {
-	// Use this for initialization
+    // Use this for initialization
+    public bool reverseDirection = false;
+
 	void Start () {
         //pigeon.getInstance().GetComponent<environment>().registerEnvironmentObject;
 	}
@@ -11,6 +13,6 @@ public class environmentObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         var dt = Time.deltaTime;
-        this.transform.Translate(environment.ENVIRONMENT_SCROLL_SPEED * environment.ENVIRONMENT_SCROLL_VECTOR);
+        this.transform.Translate(environment.ENVIRONMENT_SCROLL_SPEED * environment.ENVIRONMENT_SCROLL_VECTOR * (reverseDirection ? -1 : 1));
 	}
 }

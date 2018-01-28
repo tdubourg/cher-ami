@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33789042162667882}
   - component: {fileID: 65231020966480372}
   - component: {fileID: 23082306701942324}
+  - component: {fileID: 114738997535968008}
   m_Layer: 0
   m_Name: landing_platform
   m_TagString: Untagged
@@ -95,3 +96,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114738997535968008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1019675071586742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c05f7012a3f2f44a9de7d4df383250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
