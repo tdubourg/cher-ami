@@ -47,6 +47,7 @@ public class PlayMusic : MonoBehaviour {
 		FadeUp (resetTime);
 		//Play the assigned music clip in musicSource
 		musicSource.Play ();
+		musicSource.volume = 1.0f;
 	}
 	
 	//Used if running the game in a single scene, takes an integer music source allowing you to choose a clip by number and play.

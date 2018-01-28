@@ -35,8 +35,10 @@ public class StartOptions : MonoBehaviour {
 
         //Get a reference to the CanvasGroup attached to the main menu so that we can fade it's alpha
         menuCanvasGroup = GetComponent<CanvasGroup>();
-
-        fadeImage.color = menuSettingsData.sceneChangeFadeColor;
+		if (menuSettingsData) {
+			fadeImage.color = menuSettingsData.sceneChangeFadeColor;
+		}
+        
 	}
 
 
@@ -49,15 +51,15 @@ public class StartOptions : MonoBehaviour {
 			playMusic.FadeDown(menuSettingsData.menuFadeTime);
 		}
 
-		Debug.Log ("DOING A BUNCH OF LOADING STUFF?!");
+		//Debug.Log ("DOING A BUNCH OF LOADING STUFF?!");
 
 		//If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
 		//if (menuSettingsData.nextSceneIndex != 0) 
 		//{
 			//Use invoke to delay calling of LoadDelayed by half the length of fadeColorAnimationClip
-			Invoke ("LoadDelayed", menuSettingsData.menuFadeTime);
+		Invoke ("LoadDelayed", menuSettingsData.menuFadeTime);
 
-            StartCoroutine(FadeCanvasGroupAlpha(0f, 1f, fadeOutImageCanvasGroup));
+        StartCoroutine(FadeCanvasGroupAlpha(0f, 1f, fadeOutImageCanvasGroup));
 
         //} 
 
@@ -83,6 +85,9 @@ public class StartOptions : MonoBehaviour {
     //Once the level has loaded, check if we want to call PlayLevelMusic
     void SceneWasLoaded(Scene scene, LoadSceneMode mode)
     {
+		if (!menuSettingsData) {
+			return;
+		}
 		//if changeMusicOnStart is true, call the PlayLevelMusic function of playMusic
 		if (menuSettingsData.musicLoopToChangeTo != null)
 		{
