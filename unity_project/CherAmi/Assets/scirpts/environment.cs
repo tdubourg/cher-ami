@@ -11,8 +11,8 @@ public class environment : MonoBehaviour {
     public const float ENVIRONMENT_SCROLL_SPEED = 0.5f;
     public static Vector3 ENVIRONMENT_SCROLL_VECTOR = new Vector3(-1, 0, 0);
 
-    public const int SOLDIERS_SPAWN_INTERVAL_SEC = 3;
-    public const int PLATFORMS_SPAWN_INTERVAL_SEC = 4;
+    public const double SOLDIERS_SPAWN_INTERVAL_SEC = 3;
+    public const double PLATFORMS_SPAWN_INTERVAL_SEC = 4;
     public const int ALLY_ON_PLATFORM_FREQUENCY = 2; // an ally is on the platform every X platforms spawning
     public const double MINIMUM_TIME_BETWEEN_ANY_SPAWN_IN_SEC = 1.5;
     static List<soldier> soldiers = new List<soldier>();
@@ -26,7 +26,7 @@ public class environment : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        var dt = Time.deltaTime;
+        var dt = Time.deltaTime * game.getTimeScaleFactor();
         this.timeSinceLastSoldierSpawn += dt;
         this.timeSinceLastEmptyPlatformSpawn += dt;
         this.timeSinceLastAnySpawn += dt;
@@ -36,7 +36,7 @@ public class environment : MonoBehaviour {
             this.timeSinceLastSoldierSpawn = 0;
             this.timeSinceLastAnySpawn = 0;
             // spawn the soldier
-            //Debug.Log("Spawning a new soldier");
+            Debug.Log("Spawning a new soldier");
 
             // Create the Bullet from the Bullet Prefab
             var soldier = (GameObject)Instantiate(

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class soldier : OwnNamedObject {
     public const int SOLDIER_HIT_BLINK_NUMBER = 3;
-    public const float SOLDIER_HIT_BLINK_INTERVAL = 0.1f;
+    public const double SOLDIER_HIT_BLINK_INTERVAL = 0.1f;
 
-    const float INTERVAL_BETWEEN_SHOTS_IN_SEC = 1.0f;
+    const double INTERVAL_BETWEEN_SHOTS_IN_SEC = 1.0f;
     static int SOLDIERS_COUNT = 0;
     float timeSinceLastShot = 0;
     public AudioClip firingSound1;
@@ -43,12 +43,12 @@ public class soldier : OwnNamedObject {
             //Debug.Log("Turning renderer OFF");
 
             DisableAllRenderers();
-            yield return new WaitForSeconds(SOLDIER_HIT_BLINK_INTERVAL);
+            yield return new WaitForSeconds((float)SOLDIER_HIT_BLINK_INTERVAL);
             //Debug.Log("Turning renderer ON");
 
             //GetComponent<Renderer>().enabled = true;
             EnableAllRenderers();
-            yield return new WaitForSeconds(SOLDIER_HIT_BLINK_INTERVAL);
+            yield return new WaitForSeconds((float)SOLDIER_HIT_BLINK_INTERVAL);
 
         }
         Destroy(this.gameObject);
@@ -73,7 +73,7 @@ public class soldier : OwnNamedObject {
     // Update is called once per frame
     void Update () {
         var dt = Time.deltaTime;
-        this.timeSinceLastShot += dt;
+        this.timeSinceLastShot += dt * game.getTimeScaleFactor();
         if (this.timeSinceLastShot > INTERVAL_BETWEEN_SHOTS_IN_SEC)
         {
             this.timeSinceLastShot = 0;

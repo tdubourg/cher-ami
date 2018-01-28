@@ -20,16 +20,16 @@ public class ally : MonoBehaviour {
         {
             return; // nothing to do if we already touched the pigeon
         }
-        game.getInstance().AddScore(10);
+        game.getInstance().AddScore(game.SCORE_PER_MESSAGE);
         // Else, we drop the message from our hand and we heal the pigeon
         dropMessage();
         this.AlreadyTouchedPigeon = true;
         p.Health = Mathf.Min(pigeon.PIGEON_ALLY_HEALTH_BOOST + p.Health, pigeon.PIGEON_STARTING_HEALTH);
+        healthUI.getInstance().blink();
     }
 
     void dropMessage()
     {
-        // TODO remove the message asset from the Ally's asset hand
         var message = game.getChildGameObject(this.gameObject, "letter");
         Destroy(message);
     }

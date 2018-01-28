@@ -5,18 +5,32 @@ using UnityEngine.UI;
 
 using UnityEngine.SceneManagement;
 
+using UnityEngine.Video;
+
 
 public class game : MonoBehaviour {
     public GameObject SgtStubbyPrefab;
     public GameObject groundGameObject;
     static game singleTon = null;
+    public const int SCORE_PER_MESSAGE = 100;
+    public const double TIME_SCALE_FACTOR = 0.030;
+
+    static double sinceGameStartedOrRestarted = 0;
+
+    public static float getTimeScaleFactor()
+    {
+        var result = (float) (1 + sinceGameStartedOrRestarted * TIME_SCALE_FACTOR);
+        //Debug.Log(result);
+        return result;
+    }
+    public GameObject restartImage;
 
     public static game getInstance()
     {
         return game.singleTon;
     }
-    public static float maxX = 50.0f;
-    public static float minX = -50.0f;
+    public static float maxX = 60.0f;
+    public static float minX = -70.0f;
     public static float maxY = 65.0f;
     public static float minY = 0.0f;
 
@@ -63,6 +77,9 @@ public class game : MonoBehaviour {
 		health = 100;
         scoreText.text = score.ToString();
         healthText.text = health.ToString();
+        sinceGameStartedOrRestarted = 0.0f;
+
+        restartImage.SetActive(false);
     }
 
     public void AddScore (int newScoreValue)
@@ -93,13 +110,11 @@ public class game : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         var dt = Time.deltaTime;
+        sinceGameStartedOrRestarted += dt;
         UpdateHealth();
-		if (restart)
-		{
-			if (Input.anyKey)
-			{
-				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-			}
+        if (restart)
+        {
+            restartImage.SetActive(true);
         }
 
         this.timeSinceLastSgtStubbyTrigger += dt;
@@ -112,7 +127,7 @@ public class game : MonoBehaviour {
 		if (gameOver)
 		{
 			//Time.timeScale = 0;
-			restartText.text = "Game Over! Click or press any button to restart";
+			//restartText.text = "Game Over! Click or press any button to restart";
 			restart = true;
             //break;
         }
@@ -137,4 +152,15 @@ public class game : MonoBehaviour {
         }
         return true;
     }
+
+	static public void PauseBGVideo() {
+		var vid = GameObject.Find("BG (2)").GetComponent<VideoPlayer>();
+		vid.Pause ();
+	}
+
+	static public void PlayBGVideo() {
+		var vid = GameObject.Find("BG (2)").GetComponent<VideoPlayer>();
+		vid.Play ();
+	}
+
 }

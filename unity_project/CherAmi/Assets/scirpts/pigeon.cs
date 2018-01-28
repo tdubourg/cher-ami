@@ -5,7 +5,7 @@ using UnityEngine;
 public class pigeon : MonoBehaviour {
     public const bool INVICIBLE_MODE = false;
     public const int PIGEON_STARTING_HEALTH = 100;
-    public const int PIGEON_ALLY_HEALTH_BOOST = 40;
+    public const int PIGEON_ALLY_HEALTH_BOOST = 10;
     public const int PIGEON_HIT_BLINK_NUMBER = 3;
     public const float PIGEON_HIT_BLINK_INTERVAL = 0.1f;
 
