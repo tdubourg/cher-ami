@@ -37,7 +37,7 @@ public class environment : MonoBehaviour {
             this.timeSinceLastSoldierSpawn = 0;
             this.timeSinceLastAnySpawn = 0;
             // spawn the soldier
-            Debug.Log("Spawning a new soldier");
+            //Debug.Log("Spawning a new soldier");
 
             // Create the Bullet from the Bullet Prefab
             var soldier = (GameObject)Instantiate(
@@ -52,7 +52,7 @@ public class environment : MonoBehaviour {
 
             this.timeSinceLastEmptyPlatformSpawn = 0;
                 // spawn the soldier
-                Debug.Log("Spawning a new platform");
+                //Debug.Log("Spawning a new platform");
 
                 // Create the Bullet from the Bullet Prefab
                 var emptyPlatform = (GameObject)Instantiate(
@@ -63,7 +63,7 @@ public class environment : MonoBehaviour {
             emptyPlatform.transform.SetPositionAndRotation(vec, spawnPoint.transform.rotation);
             if (this.platformsSinceLastAlly > ALLY_ON_PLATFORM_FREQUENCY)
             {
-                Debug.Log("Ally on the platform");
+                //Debug.Log("Ally on the platform");
                 this.platformsSinceLastAlly = 0;
                 var platTr = emptyPlatform.transform;
                 var ally = (GameObject)Instantiate(allyPrefab, platTr, platTr);
