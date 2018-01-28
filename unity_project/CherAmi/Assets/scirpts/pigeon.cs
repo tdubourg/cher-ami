@@ -89,13 +89,12 @@ public class pigeon : MonoBehaviour {
 
 		health = health - bullet.DAMAGE;
 		Destroy (bulletThatHit.gameObject);
-		Debug.Log ("OUCH! Health is now " + health);
+		//Debug.Log ("OUCH! Health is now " + health);
 		if (health <= 0) {
 			health = 0;
 			this.die ();
 		} else
         {
-            Debug.Log("Launching blink?");
             StartCoroutine(blink());
             //for (int i = 0; i < PIGEON_HIT_BLINK_NUMBER; i += 1)
             //{
@@ -116,7 +115,7 @@ public class pigeon : MonoBehaviour {
 	void OnTriggerEnter (Collider other){
 		//Debug.Log ("TRIGGER ENTER");
 
-		Debug.Log ("Collided with " + other.name);
+		//Debug.Log ("Collided with " + other.name);
 
 		if (other.name.Contains("bullet")) {
 			this.ouch (other);

@@ -54,8 +54,8 @@ public class game : MonoBehaviour {
 		restartText.text = "";
 
 		health = 100;
-        scoreText.text = "Score: " + score;
-        healthText.text = "Health: " + health;
+        scoreText.text = score.ToString();
+        healthText.text = health.ToString();
     }
 
     public void AddScore (int newScoreValue)
@@ -66,13 +66,13 @@ public class game : MonoBehaviour {
 
 	void UpdateScore ()
 	{
-		scoreText.text = "Score: " + score;
+		scoreText.text = score.ToString();
 	}
 
     void UpdateHealth()
     {
         health = pigeon.getInstance().Health;
-        healthText.text = "Health: " + health;
+        healthText.text = health.ToString();
     }
 
 	public void GameOver ()

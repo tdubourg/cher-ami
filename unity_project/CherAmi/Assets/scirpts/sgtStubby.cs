@@ -15,4 +15,18 @@ public class sgtStubby : MonoBehaviour {
         var dt = Time.deltaTime;
         this.transform.Translate(SGT_STUBBY_RUNNING_DIRECTION * SGT_STUBBY_SPEED * dt);
 	}
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        
+
+        Debug.Log("STUBBY   Collided with " + other.name);
+
+        if (other.name.Contains("soldier"))
+        {
+            other.gameObject.GetComponent<soldier>().die();
+        }
+
+    }
 }
