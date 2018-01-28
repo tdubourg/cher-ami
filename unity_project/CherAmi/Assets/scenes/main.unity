@@ -261,7 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054815236e3d0db4c9bf12a59e317a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeRate: 0
   text: {fileID: 182290043}
   green: {fileID: 1246255132}
 --- !u!1 &182290041
@@ -274,7 +273,6 @@ GameObject:
   - component: {fileID: 182290042}
   - component: {fileID: 182290044}
   - component: {fileID: 182290043}
-  - component: {fileID: 182290045}
   - component: {fileID: 182290046}
   m_Layer: 5
   m_Name: text
@@ -333,20 +331,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 182290041}
---- !u!114 &182290045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 182290041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 054815236e3d0db4c9bf12a59e317a22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FadeRate: 0
-  text: {fileID: 0}
-  green: {fileID: 0}
 --- !u!225 &182290046
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1000,6 +984,7 @@ GameObject:
   - component: {fileID: 1246255133}
   - component: {fileID: 1246255132}
   - component: {fileID: 1246255134}
+  - component: {fileID: 1246255135}
   m_Layer: 5
   m_Name: green
   m_TagString: Untagged
@@ -1068,6 +1053,17 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1246255135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1246255130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e38034f7b1d289438b5071071d96636, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1316452878 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4198740951108274, guid: 264a0f64155d72c41b134048fb470f0a,

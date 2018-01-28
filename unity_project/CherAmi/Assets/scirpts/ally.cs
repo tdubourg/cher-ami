@@ -25,6 +25,7 @@ public class ally : MonoBehaviour {
         dropMessage();
         this.AlreadyTouchedPigeon = true;
         p.Health = Mathf.Min(pigeon.PIGEON_ALLY_HEALTH_BOOST + p.Health, pigeon.PIGEON_STARTING_HEALTH);
+        healthUI.getInstance().blink();
     }
 
     void dropMessage()
