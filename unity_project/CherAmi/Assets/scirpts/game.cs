@@ -12,7 +12,8 @@ public class game : MonoBehaviour {
     public GameObject SgtStubbyPrefab;
     public GameObject groundGameObject;
     static game singleTon = null;
-    public const double TIME_SCALE_FACTOR = 0.033;
+    public const int SCORE_PER_MESSAGE = 100;
+    public const double TIME_SCALE_FACTOR = 0.030;
 
     static double sinceGameStartedOrRestarted = 0;
 
