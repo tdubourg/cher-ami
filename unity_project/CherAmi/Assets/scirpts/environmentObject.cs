@@ -12,7 +12,7 @@ public class environmentObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        var dt = Time.deltaTime;
+        var dt = Time.deltaTime * game.getTimeScaleFactor();
         this.transform.Translate(environment.ENVIRONMENT_SCROLL_SPEED * environment.ENVIRONMENT_SCROLL_VECTOR * (reverseDirection ? -1 : 1));
 	}
 }

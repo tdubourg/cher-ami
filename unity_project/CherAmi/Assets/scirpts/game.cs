@@ -12,6 +12,16 @@ public class game : MonoBehaviour {
     public GameObject SgtStubbyPrefab;
     public GameObject groundGameObject;
     static game singleTon = null;
+    public const double TIME_SCALE_FACTOR = 0.033;
+
+    static double sinceGameStartedOrRestarted = 0;
+
+    public static float getTimeScaleFactor()
+    {
+        var result = (float) (1 + sinceGameStartedOrRestarted * TIME_SCALE_FACTOR);
+        //Debug.Log(result);
+        return result;
+    }
 
     public static game getInstance()
     {
@@ -65,6 +75,7 @@ public class game : MonoBehaviour {
 		health = 100;
         scoreText.text = score.ToString();
         healthText.text = health.ToString();
+        sinceGameStartedOrRestarted = 0.0f;
     }
 
     public void AddScore (int newScoreValue)
@@ -95,6 +106,7 @@ public class game : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         var dt = Time.deltaTime;
+        sinceGameStartedOrRestarted += dt;
         UpdateHealth();
 		if (restart)
 		{
