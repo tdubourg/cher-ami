@@ -34,6 +34,13 @@ public class game : MonoBehaviour {
 	private int score;
     private int health;
 
+    static public GameObject getChildGameObject(GameObject fromGameObject, string name)
+    {
+        Transform[] ts = fromGameObject.transform.GetComponentsInChildren<Transform>();
+        foreach (Transform t in ts) if (t.gameObject.name == name) return t.gameObject;
+        return null;
+    }
+
     public static Vector3 getSceneCenter()
     {
         return new Vector3((maxX - minX) / 2, (maxY - minY) / 2, 0);

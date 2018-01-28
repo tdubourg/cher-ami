@@ -30,5 +30,7 @@ public class ally : MonoBehaviour {
     void dropMessage()
     {
         // TODO remove the message asset from the Ally's asset hand
+        var message = game.getChildGameObject(this.gameObject, "letter");
+        Destroy(message);
     }
 }

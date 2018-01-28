@@ -89,9 +89,7 @@ public class soldier : OwnNamedObject {
 
     static public GameObject getChildGameObject(GameObject fromGameObject, string name)
     {
-        Transform[] ts = fromGameObject.transform.GetComponentsInChildren<Transform>();
-        foreach (Transform t in ts) if (t.gameObject.name == name) return t.gameObject;
-        return null;
+        return game.getChildGameObject(fromGameObject, name);
     }
 
     void Fire()
