@@ -18,7 +18,7 @@ public abstract class OwnNamedObject: MonoBehaviour
 public class bullet : OwnNamedObject {
     static int BULLETS_COUNT = 0;
     private Vector2 pigeonPosition;
-    private Vector2 direction;
+    //private Vector2 direction;
     private int speed = 90;
     public const int DAMAGE = 5;
     public const float PIGEON_SHOOT_DIRECTION_Y_OFFSET = 7.0f;
@@ -52,9 +52,9 @@ public class bullet : OwnNamedObject {
 	// Update is called once per frame
 	void Update () {
 		
-		if (direction.x > 0) {
-			direction = -direction;
-		}
+		//if (direction.x > 0) {
+		//	direction = -direction;
+		//}
 		transform.Translate(new Vector3(1, 0, 0) * speed * Time.deltaTime);
 
     }
