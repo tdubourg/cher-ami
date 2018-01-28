@@ -5,7 +5,7 @@ using UnityEngine;
 public class environment : MonoBehaviour {
     public GameObject soldierPrefab;
     public GameObject landingPlatformPrefab;
-    public Transform spawnPoint;
+    public GameObject spawnPoint;
 
     public const float ENVIRONMENT_SCROLL_SPEED = 0.5f;
     public static Vector3 ENVIRONMENT_SCROLL_VECTOR = new Vector3(-1, 0, 0);
@@ -31,7 +31,7 @@ public class environment : MonoBehaviour {
             // Create the Bullet from the Bullet Prefab
             var soldier = (GameObject)Instantiate(
                 soldierPrefab,
-                this.transform, this.transform);
+                spawnPoint.transform, spawnPoint.transform);
         }
     }
 }

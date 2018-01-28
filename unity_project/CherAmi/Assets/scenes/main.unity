@@ -516,7 +516,7 @@ MonoBehaviour:
     type: 2}
   landingPlatformPrefab: {fileID: 1019675071586742, guid: 8af1b37ff4631824dae3e1f77be1e755,
     type: 2}
-  spawnPoint: {fileID: 1219800865}
+  spawnPoint: {fileID: 1219800864}
 --- !u!135 &1442866579
 SphereCollider:
   m_ObjectHideFlags: 0
