@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.SceneManagement;
+
 
 public class game : MonoBehaviour {
 
@@ -17,6 +19,12 @@ public class game : MonoBehaviour {
     public static float minX = -50.0f;
     public static float maxY = 65.0f;
     public static float minY = 0.0f;
+
+
+	public Text restartText;
+
+	private bool gameOver;
+	private bool restart;
 
 	public Text scoreText;
 	public Text healthText;
@@ -37,6 +45,10 @@ public class game : MonoBehaviour {
     void Start () {
 		score = 0;
         game.singleTon = this;
+
+		gameOver = false;
+		restart = false;
+		restartText.text = "";
 
 		health = 100;
         scoreText.text = "Score: " + score;
@@ -60,9 +72,33 @@ public class game : MonoBehaviour {
         healthText.text = "Health: " + health;
     }
 
+	public void GameOver ()
+	{
+		//gameOverText.text = "Game Over!";
+		gameOver = true;
+	}
+
     // Update is called once per frame
     void Update () {
         UpdateHealth();
+		if (restart)
+		{
+			if (Input.GetKeyDown (KeyCode.R))
+			{
+				//Time.timeScale = 1;
+				SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+				//SceneManager.loadScene(Scene
+			}
+		}
+
+		if (gameOver)
+		{
+			//Time.timeScale = 0;
+			restartText.text = "Game Over! Press 'R' to Restart";
+			restart = true;
+			//break;
+
+		}
     }
 
     static public bool IsWithinGamesBounds(Vector3 p)

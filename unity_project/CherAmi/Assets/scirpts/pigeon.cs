@@ -51,7 +51,11 @@ public class pigeon : MonoBehaviour {
 	void die() {
         if (INVICIBLE_MODE) { return;  }
 		Debug.Log ("GOODBYE CRUEL WORLD! I'M DED LOLZ");
-		Destroy(this.gameObject);
+		//Destroy(this.gameObject);
+		//GetComponent<game> ().GameOver ();
+		gameObject.SetActive(false);
+
+		game.getInstance().GameOver();
 	}
 
 	void OnTriggerEnter (Collider other){
