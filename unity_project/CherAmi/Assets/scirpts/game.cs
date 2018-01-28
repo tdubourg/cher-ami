@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 using UnityEngine.SceneManagement;
 
+using UnityEngine.Video;
+
 
 public class game : MonoBehaviour {
     public GameObject SgtStubbyPrefab;
@@ -137,4 +139,15 @@ public class game : MonoBehaviour {
         }
         return true;
     }
+
+	static public void PauseBGVideo() {
+		var vid = GameObject.Find("BG (2)").GetComponent<VideoPlayer>();
+		vid.Pause ();
+	}
+
+	static public void PlayBGVideo() {
+		var vid = GameObject.Find("BG (2)").GetComponent<VideoPlayer>();
+		vid.Play ();
+	}
+
 }
