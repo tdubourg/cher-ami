@@ -50,7 +50,11 @@ public class pigeon : MonoBehaviour {
 
 	void die() {
 		Debug.Log ("GOODBYE CRUEL WORLD! I'M DED LOLZ");
-		Destroy(this.gameObject);
+		//Destroy(this.gameObject);
+		//GetComponent<game> ().GameOver ();
+		gameObject.SetActive(false);
+
+		game.getInstance().GameOver();
 	}
 
 	void OnTriggerEnter (Collider other){
