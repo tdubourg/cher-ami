@@ -17,7 +17,7 @@ public class pigeon : MonoBehaviour {
         return pigeon.singleTon;
     }
 
-	public float speed = 75.0f;
+	public float speed = 90.0f;
 
 	private float x;
 	private float y;
@@ -50,7 +50,7 @@ public class pigeon : MonoBehaviour {
 
 	void die() {
 		Debug.Log ("GOODBYE CRUEL WORLD! I'M DED LOLZ");
-		//
+		Destroy(this.gameObject);
 	}
 
 	void OnTriggerEnter (Collider other){
@@ -60,6 +60,7 @@ public class pigeon : MonoBehaviour {
 
 		if (other.name.Contains("bullet")) {
 			this.ouch (other);
+			Destroy (other);
 		}
 		if (other.name.Contains ("ally")) {
 			game.getInstance().AddScore(1);
