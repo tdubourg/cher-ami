@@ -822,6 +822,7 @@ MonoBehaviour:
   landingPlatformPrefab: {fileID: 1019675071586742, guid: 8af1b37ff4631824dae3e1f77be1e755,
     type: 2}
   spawnPoint: {fileID: 1219800864}
+  allyPrefab: {fileID: 1371490631567378, guid: f6911d8c32060a34b8743320c275fb80, type: 2}
 --- !u!135 &1442866579
 SphereCollider:
   m_ObjectHideFlags: 0
