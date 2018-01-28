@@ -107,6 +107,8 @@ public class pigeon : MonoBehaviour {
         if (INVICIBLE_MODE) { return;  }
 		Debug.Log ("GOODBYE CRUEL WORLD! I'M DED LOLZ");
 
+        this.health = 0;
+
 		gameObject.SetActive(false);
 
 		game.getInstance().GameOver();
@@ -127,12 +129,17 @@ public class pigeon : MonoBehaviour {
             other.gameObject.GetComponent<ally>().touchPigeon(this);
 			//Destroy (other.gameObject);
 		}
+        else if (other.name.Contains("soldier"))
+        {
+            // die if you touchb a soldier!
+            this.die();
+        }
 
-	}
+    }
 
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 		var dt = Time.deltaTime;
 
 		this.x = transform.position.x;
