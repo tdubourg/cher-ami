@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class healthUI : MonoBehaviour {
-    public RawImage text;
+    public Image text;
     public RawImage green;
     private float targetAlpha;
     public const int HEALTH_BLINK_NUMBER = 2;
