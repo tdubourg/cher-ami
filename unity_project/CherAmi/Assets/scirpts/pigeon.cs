@@ -7,6 +7,11 @@ public class pigeon : MonoBehaviour {
 
     static pigeon singleTon = null;
 
+    public int Health
+    {
+        get { return health; }
+    }
+
     public static pigeon getInstance()
     {
         return pigeon.singleTon;
