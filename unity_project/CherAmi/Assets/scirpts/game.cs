@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 
 public class game : MonoBehaviour {
-
+    public GameObject SgtStubbyPrefab;
 
     static game singleTon = null;
 

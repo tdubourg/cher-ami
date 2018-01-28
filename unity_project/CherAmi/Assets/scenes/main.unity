@@ -1239,6 +1239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f569b80ae720f104ba4765a8c25303d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SgtStubbyPrefab: {fileID: 1551588797887154, guid: e3ab15e45fe3d634a849bf86243423a5,
+    type: 2}
   restartText: {fileID: 1013758198}
   scoreText: {fileID: 790183553}
   healthText: {fileID: 134701365}
