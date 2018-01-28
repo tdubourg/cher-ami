@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class environment : MonoBehaviour {
     public GameObject soldierPrefab;
+    public GameObject landingPlatformPrefab;
+    public Transform spawnPoint;
 
     public const float ENVIRONMENT_SCROLL_SPEED = 0.5f;
     public static Vector3 ENVIRONMENT_SCROLL_VECTOR = new Vector3(-1, 0, 0);
