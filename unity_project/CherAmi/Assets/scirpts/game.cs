@@ -29,7 +29,7 @@ public class game : MonoBehaviour {
     {
         return game.singleTon;
     }
-    public static float maxX = 60.0f;
+    public static float maxX = 65.0f;
     public static float minX = -70.0f;
     public static float maxY = 65.0f;
     public static float minY = 0.0f;
