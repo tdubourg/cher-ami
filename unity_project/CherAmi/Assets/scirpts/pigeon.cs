@@ -6,6 +6,8 @@ public class pigeon : MonoBehaviour {
     public const bool INVICIBLE_MODE = false;
     public const int PIGEON_STARTING_HEALTH = 100;
     public const int PIGEON_ALLY_HEALTH_BOOST = 40;
+    public const int PIGEON_HIT_BLINK_NUMBER = 3;
+    public const float PIGEON_HIT_BLINK_INTERVAL = 0.1f;
 
     static pigeon singleTon = null;
 
@@ -27,8 +29,59 @@ public class pigeon : MonoBehaviour {
     
     private int health = PIGEON_STARTING_HEALTH;
 
-	// Use this for initialization
-	void Start () {
+    //void Blink(float waitTime)
+    //{
+    //    var endTime = Time.time + waitTime;
+    //    while (Time.time < waitTime)
+    //    {
+    //        renderer.enabled = false;
+    //        yield WaitForSeconds(0.2);
+    //        renderer.enabled = true;
+    //        yield WaitForSeconds(0.2);
+    //    }
+    //}
+
+    void DisableAllRenderers()
+    {
+        var allRenderers = gameObject.GetComponentsInChildren< Renderer > ();
+   
+        foreach (var childRenderer in allRenderers)
+        {
+            childRenderer.enabled = false;
+        }
+    }
+
+    void EnableAllRenderers()
+    {
+        var allRenderers = gameObject.GetComponentsInChildren<Renderer>();
+
+        foreach (var childRenderer in allRenderers)
+        {
+            childRenderer.enabled = true;
+        }
+    }
+
+
+    IEnumerator blink()
+    {
+        Debug.Log("Entering blink()");
+        for (int i = 0; i < PIGEON_HIT_BLINK_NUMBER; i++)
+        {
+            Debug.Log("Turning renderer OFF");
+
+            DisableAllRenderers();
+                        yield return new WaitForSeconds(PIGEON_HIT_BLINK_INTERVAL);
+            Debug.Log("Turning renderer ON");
+
+            //GetComponent<Renderer>().enabled = true;
+            EnableAllRenderers();
+            yield return new WaitForSeconds(PIGEON_HIT_BLINK_INTERVAL);
+
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
         pigeon.singleTon = this;
 	}
 
@@ -40,7 +93,15 @@ public class pigeon : MonoBehaviour {
 		if (health <= 0) {
 			health = 0;
 			this.die ();
-		}
+		} else
+        {
+            Debug.Log("Launching blink?");
+            StartCoroutine(blink());
+            //for (int i = 0; i < PIGEON_HIT_BLINK_NUMBER; i += 1)
+            //{
+            //    var a = blinkOnce();
+            //}
+        }
 	}
 
 	void die() {
