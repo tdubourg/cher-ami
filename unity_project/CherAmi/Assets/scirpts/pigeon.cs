@@ -64,14 +64,14 @@ public class pigeon : MonoBehaviour {
 
     IEnumerator blink()
     {
-        Debug.Log("Entering blink()");
+        //Debug.Log("Entering blink()");
         for (int i = 0; i < PIGEON_HIT_BLINK_NUMBER; i++)
         {
-            Debug.Log("Turning renderer OFF");
+            //Debug.Log("Turning renderer OFF");
 
             DisableAllRenderers();
                         yield return new WaitForSeconds(PIGEON_HIT_BLINK_INTERVAL);
-            Debug.Log("Turning renderer ON");
+            //Debug.Log("Turning renderer ON");
 
             //GetComponent<Renderer>().enabled = true;
             EnableAllRenderers();
