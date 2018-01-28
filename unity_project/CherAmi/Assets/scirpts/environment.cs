@@ -32,6 +32,9 @@ public class environment : MonoBehaviour {
             var soldier = (GameObject)Instantiate(
                 soldierPrefab,
                 spawnPoint.transform, spawnPoint.transform);
+            var vec = spawnPoint.transform.position;
+            vec = new Vector3(vec.x, vec.y + soldier.transform.lossyScale.y / 2, vec.z);
+            soldier.transform.SetPositionAndRotation(vec, spawnPoint.transform.rotation);
         }
     }
 }
