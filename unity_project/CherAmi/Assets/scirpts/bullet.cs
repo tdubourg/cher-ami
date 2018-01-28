@@ -33,9 +33,9 @@ public class bullet : OwnNamedObject {
 
         nameIt();
         pigeon pigeon = pigeon.getInstance();
-        pigeonPosition = pigeon.transform.position;
+        var pigeonPosition = pigeon.getInstance().GetComponent<Collider>().transform.position;
         // Add velocity to the bullet
-		var heading = new Vector3(pigeonPosition.x, pigeonPosition.y, 0) - this.transform.position;
+		var heading = new Vector3(pigeonPosition.x, pigeonPosition.y, pigeonPosition.z) - this.transform.position;
 		heading.y = 0;
 		var distance = heading.magnitude;
 		this.direction = heading / distance;
