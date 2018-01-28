@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class pigeon : MonoBehaviour {
-    const bool INVICIBLE_MODE = true;
+    const bool INVICIBLE_MODE = false;
 
     static pigeon singleTon = null;
 
@@ -33,15 +33,10 @@ public class pigeon : MonoBehaviour {
 		Debug.Log ("3D COLLISION ENTER");
 	}
 
-	void ouch(Collider bulletThatHit) {		
-		var b = bulletThatHit.gameObject.GetComponent<bullet>();
+	void ouch(Collider bulletThatHit) {				
 
-		if (bullet.DAMAGE > 1) {
-			health = health - bullet.DAMAGE;
-		} else {
-			health = health - 1; //TODO fixed default
-		}
-
+		health = health - bullet.DAMAGE;
+		Destroy (bulletThatHit.gameObject);
 		Debug.Log ("OUCH! Health is now " + health);
 		if (health <= 0) {
 			health = 0;
