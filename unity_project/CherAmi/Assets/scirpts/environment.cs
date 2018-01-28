@@ -8,7 +8,6 @@ public class environment : MonoBehaviour {
     public GameObject spawnPoint;
     public GameObject allyPrefab;
 
-
     public const float ENVIRONMENT_SCROLL_SPEED = 0.5f;
     public static Vector3 ENVIRONMENT_SCROLL_VECTOR = new Vector3(-1, 0, 0);
 
@@ -59,7 +58,7 @@ public class environment : MonoBehaviour {
                     landingPlatformPrefab,
                     spawnPoint.transform, spawnPoint.transform);
                 var vec = spawnPoint.transform.position;
-                vec = new Vector3(vec.x, vec.y + emptyPlatform.transform.lossyScale.y / 2, vec.z);
+                vec = new Vector3(vec.x, vec.y + emptyPlatform.transform.lossyScale.y / 2.0f, vec.z);
             emptyPlatform.transform.SetPositionAndRotation(vec, spawnPoint.transform.rotation);
             if (this.platformsSinceLastAlly > ALLY_ON_PLATFORM_FREQUENCY)
             {
