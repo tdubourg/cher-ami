@@ -15,9 +15,11 @@ public class environment : MonoBehaviour {
     public const int SOLDIERS_SPAWN_INTERVAL_SEC = 3;
     public const int PLATFORMS_SPAWN_INTERVAL_SEC = 4;
     public const int ALLY_ON_PLATFORM_FREQUENCY = 3; // an ally is on the platform every X platforms spawning
+    public const double MINIMUM_TIME_BETWEEN_ANY_SPAWN_IN_SEC = 1.5;
     static List<soldier> soldiers = new List<soldier>();
     float timeSinceLastSoldierSpawn = 0; float timeSinceLastEmptyPlatformSpawn = 0;
     int platformsSinceLastAlly = 0;
+    float timeSinceLastAnySpawn = 0;
     // Use this for initialization
     void Start () {
 		
@@ -28,10 +30,12 @@ public class environment : MonoBehaviour {
         var dt = Time.deltaTime;
         this.timeSinceLastSoldierSpawn += dt;
         this.timeSinceLastEmptyPlatformSpawn += dt;
+        this.timeSinceLastAnySpawn += dt;
 
-        if (this.timeSinceLastSoldierSpawn > SOLDIERS_SPAWN_INTERVAL_SEC)
+        if (this.timeSinceLastAnySpawn > MINIMUM_TIME_BETWEEN_ANY_SPAWN_IN_SEC && this.timeSinceLastSoldierSpawn > SOLDIERS_SPAWN_INTERVAL_SEC)
         {
             this.timeSinceLastSoldierSpawn = 0;
+            this.timeSinceLastAnySpawn = 0;
             // spawn the soldier
             Debug.Log("Spawning a new soldier");
 
@@ -42,10 +46,11 @@ public class environment : MonoBehaviour {
             var vec = spawnPoint.transform.position;
             vec = new Vector3(vec.x, vec.y + soldier.transform.lossyScale.y / 2, vec.z);
             soldier.transform.SetPositionAndRotation(vec, spawnPoint.transform.rotation);
-        } else if (this.timeSinceLastEmptyPlatformSpawn > PLATFORMS_SPAWN_INTERVAL_SEC) {
+        } else if (this.timeSinceLastAnySpawn > MINIMUM_TIME_BETWEEN_ANY_SPAWN_IN_SEC && this.timeSinceLastEmptyPlatformSpawn > PLATFORMS_SPAWN_INTERVAL_SEC) {
             this.platformsSinceLastAlly += 1;
+            this.timeSinceLastAnySpawn = 0;
 
-                    this.timeSinceLastEmptyPlatformSpawn = 0;
+            this.timeSinceLastEmptyPlatformSpawn = 0;
                 // spawn the soldier
                 Debug.Log("Spawning a new platform");
 
