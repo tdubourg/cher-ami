@@ -20,8 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4417487275797242}
   - component: {fileID: 212552210010678008}
+  - component: {fileID: 114328880963479870}
   m_Layer: 0
-  m_Name: feathers
+  m_Name: feathers_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,6 +41,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114328880963479870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225982028341738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c748318ca8b24c849a4f25289e2cf280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212552210010678008
 SpriteRenderer:
   m_ObjectHideFlags: 1
