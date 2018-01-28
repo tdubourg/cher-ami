@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class pigeon : MonoBehaviour {
-    const bool INVICIBLE_MODE = false;
+    public const bool INVICIBLE_MODE = false;
+    public const int PIGEON_STARTING_HEALTH = 100;
+    public const int PIGEON_ALLY_HEALTH_BOOST = 40;
 
     static pigeon singleTon = null;
 
     public int Health
     {
-        get { return INVICIBLE_MODE ? 10000 : health; }
+        get { return health; }
+        set { this.health = value; }
     }
 
     public static pigeon getInstance()
@@ -21,8 +24,8 @@ public class pigeon : MonoBehaviour {
 
 	private float x;
 	private float y;
-
-	private int health = 100;
+    
+    private int health = PIGEON_STARTING_HEALTH;
 
 	// Use this for initialization
 	void Start () {
@@ -60,8 +63,9 @@ public class pigeon : MonoBehaviour {
 		}
 		if (other.name.Contains ("ally")) {
 			game.getInstance().AddScore(10);
-			health = 100;
-			Destroy (other.gameObject);
+            // Trigger ally actions on touchong the pigeon
+            other.gameObject.GetComponent<ally>().touchPigeon(this);
+			//Destroy (other.gameObject);
 		}
 
 	}
