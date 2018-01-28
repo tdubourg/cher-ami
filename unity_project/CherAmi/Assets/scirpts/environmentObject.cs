@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class environmentObject : MonoBehaviour {
-    // Use this for initialization
+    // Use this for debugging
     public bool reverseDirection = false;
 
 	void Start () {
