@@ -20,6 +20,7 @@ public class ally : MonoBehaviour {
         {
             return; // nothing to do if we already touched the pigeon
         }
+        game.getInstance().AddScore(10);
         // Else, we drop the message from our hand and we heal the pigeon
         dropMessage();
         this.AlreadyTouchedPigeon = true;

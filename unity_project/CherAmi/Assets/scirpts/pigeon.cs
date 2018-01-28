@@ -122,7 +122,7 @@ public class pigeon : MonoBehaviour {
 			Destroy (other);
 		}
 		if (other.name.Contains ("ally")) {
-			game.getInstance().AddScore(10);
+			
             // Trigger ally actions on touchong the pigeon
             other.gameObject.GetComponent<ally>().touchPigeon(this);
 			//Destroy (other.gameObject);

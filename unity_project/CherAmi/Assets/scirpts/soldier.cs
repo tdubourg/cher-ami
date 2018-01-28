@@ -6,7 +6,7 @@ public class soldier : OwnNamedObject {
     public const int SOLDIER_HIT_BLINK_NUMBER = 3;
     public const float SOLDIER_HIT_BLINK_INTERVAL = 0.1f;
 
-    const int INTERVAL_BETWEEN_SHOTS_IN_SEC = 1;
+    const float INTERVAL_BETWEEN_SHOTS_IN_SEC = 1.0f;
     static int SOLDIERS_COUNT = 0;
     float timeSinceLastShot = 0;
     public AudioClip firingSound1;
@@ -78,7 +78,6 @@ public class soldier : OwnNamedObject {
         {
             this.timeSinceLastShot = 0;
             Fire();
-           // Debug.Log("Spawning a new bullet for soldier " + ownName);
         }
 	}
 
@@ -86,6 +85,13 @@ public class soldier : OwnNamedObject {
     {
         StartCoroutine(blinkAndDie());
         
+    }
+
+    static public GameObject getChildGameObject(GameObject fromGameObject, string name)
+    {
+        Transform[] ts = fromGameObject.transform.GetComponentsInChildren<Transform>();
+        foreach (Transform t in ts) if (t.gameObject.name == name) return t.gameObject;
+        return null;
     }
 
     void Fire()
@@ -96,13 +102,21 @@ public class soldier : OwnNamedObject {
             this.transform.position,
             this.transform.rotation);
 
+        var rifle = getChildGameObject(this.gameObject, "rifle");
+        Debug.Log(rifle);
+        var height = rifle.transform.lossyScale.y;
+        var width = rifle.transform.lossyScale.x;
+        var y = rifle.transform.position.y + 0.15f * height; // rifle seems located aout 85% up
+        var x = rifle.transform.position.x - width / 2.3f;
+        var position = new Vector3(x, y, this.transform.position.z);
+        // The soldier is actually rotated, so we should use the transform rotation from something stable: the ground
+        bullet.transform.SetPositionAndRotation(position, game.getInstance().groundGameObject.transform.rotation);
+
         if (Random.Range(1, 5) == 3)
         {
             PlayFiringSound(Random.Range(0, 2));
         }
-
-        // Destroy the bullet after 2 seconds
-        //Destroy(bullet, 2.0f);
+        
     }
 
     void PlayFiringSound(int soundNum)

@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 33229662894419252}
   - component: {fileID: 23441613757928080}
   m_Layer: 0
-  m_Name: pCube2
+  m_Name: rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

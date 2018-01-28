@@ -19,10 +19,7 @@ public class sgtStubby : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        
-
-        Debug.Log("STUBBY   Collided with " + other.name);
-
+     
         if (other.name.Contains("soldier"))
         {
             other.gameObject.GetComponent<soldier>().die();
