@@ -16,11 +16,10 @@ public abstract class OwnNamedObject: MonoBehaviour
 }
 
 public class bullet : OwnNamedObject {
-    public GameObject pigeon;
     static int BULLETS_COUNT = 0;
     private Vector2 pigeonPosition;
     private Vector2 direction;
-    public int speed = 50;
+    private int speed = 50;
     public int damage = 10;
 
     override public void nameIt()

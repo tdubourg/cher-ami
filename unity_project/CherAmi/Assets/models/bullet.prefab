@@ -53,8 +53,8 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1955251544366006}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c05f7012a3f2f44a9de7d4df383250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reverseDirection: 0
 --- !u!114 &114811856056800590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,8 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownName: unnamed yet
-  pigeon: {fileID: 0}
-  speed: 50
   damage: 20
 --- !u!136 &136057816181033650
 CapsuleCollider:
