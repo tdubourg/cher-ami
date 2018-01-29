@@ -6,7 +6,7 @@ public class soldier : OwnNamedObject {
     public const int SOLDIER_HIT_BLINK_NUMBER = 3;
     public const double SOLDIER_HIT_BLINK_INTERVAL = 0.1f;
 
-    const double INTERVAL_BETWEEN_SHOTS_IN_SEC = 1.0f;
+    const double INTERVAL_BETWEEN_SHOTS_IN_SEC = 4.0f;
     static int SOLDIERS_COUNT = 0;
     float timeSinceLastShot = 0;
     public AudioClip firingSound1;
